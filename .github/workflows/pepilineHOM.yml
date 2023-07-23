@@ -1,10 +1,13 @@
-name: Execução de testes regressivos Master
+name: Execução de testes regressivos MASTER
 
 on:
   # push:
   #   branches: [ develop ]
   pull_request:
     branches: [ develop ]
+    types:
+      - opened
+      - synchronize
   # schedule:
   #   - cron: '0 9,17,22 * * 1,2,3,4,5'
 
