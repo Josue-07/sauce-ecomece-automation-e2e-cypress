@@ -6,7 +6,8 @@ describe('Tela Login Sauce Demo', () => {
 
     });
     afterEach(() => {
-        cy.screenshot()
+        //cy.screenshot()
+
     });
 
     it('CT001 - Validar logon com sucesso', () => {
@@ -26,7 +27,7 @@ describe('Tela Login Sauce Demo', () => {
     const usernames = ['standard_user', 'problem_user', 'performance_glitch_user']
     let cont = 2
     usernames.forEach(user => {
-        it(`CT00${cont} Validar logon bem sucedido com o username -> "${user}"`, () => {
+        it(`CT00${cont} - Validar logon bem sucedido com o username -> "${user}"`, () => {
             cy.get('#user-name').type(`${user}`);
             cy.get('#password').type('secret_sauce');
 
@@ -40,6 +41,26 @@ describe('Tela Login Sauce Demo', () => {
         cont++
 
     })
+
+    it('CT005 - Validar mensagem de erro para usuario bloqueado', () => {
+        cy.get('#user-name').type('locked_out_user');
+        cy.get('#password').type('secret_sauce');
+
+        // Enviar formulário de login
+        cy.get('.btn_action').click();
+        cy.get('.error-message-container > h3')
+            .should('have.text', 'Epic sadface: Sorry, this user has been locked out.')
+    });
+
+    it('CT006 - Validar mensagem para usuario inexistente', () => {
+        cy.get('#user-name').type('usuario-desconhecido');
+        cy.get('#password').type('secret_sauce');
+
+        // Enviar formulário de login
+        cy.get('.btn_action').click()
+        cy.get('[data-test="error"]')
+            .should('have.text', 'Epic sadface: Username and password do not match any user in this service');
+    });
 
 });
 
