@@ -1,4 +1,4 @@
-name: Execução de testes regressivos
+name: Execução de testes regressivos Master
 
 on:
   # push:
