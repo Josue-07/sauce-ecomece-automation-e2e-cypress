@@ -16,5 +16,9 @@
 // Import commands.js using ES2015 syntax:
 import './commands'
 
+before(() => {
+    cy.visit('https://www.saucedemo.com')
+});
+
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
