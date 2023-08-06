@@ -17,7 +17,7 @@
 import './commands'
 
 before(() => {
-    cy.visit('https://www.saucedemo.com')
+    cy.visit('/')
 });
 
 // Alternatively you can use CommonJS syntax:
