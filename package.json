@@ -6,12 +6,12 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "cypress open": "cypress open",
-    "tests":"cypress run"
+    "run headless": "cypress run"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "cypress": "^12.16.0"
+    "cypress": "^12.17.3"
   }
 }

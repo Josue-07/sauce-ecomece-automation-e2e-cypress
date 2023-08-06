@@ -16,8 +16,13 @@
 // Import commands.js using ES2015 syntax:
 import './commands'
 
-before(() => {
+beforeEach(() => {
     cy.visit('/')
+});
+
+afterEach(() => {
+    //cy.screenshot()
+    //cy.reload()
 });
 
 // Alternatively you can use CommonJS syntax:
