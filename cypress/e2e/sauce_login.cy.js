@@ -30,7 +30,7 @@ describe('Tela Login Sauce Demo', () => {
 
     it('CT006 - Validar mensagem para usuario inexistente', () => {
 
-        cy.login('usuario-desconhecido','secret_sauce')
+        cy.login('usuario-desconhecido', 'secret_sauce')
         cy.get(locators.page_login.ERROR_USER_NONEXISTENT)
             .should('have.text', 'Epic sadface: Username and password do not match any user in this service');
     });
